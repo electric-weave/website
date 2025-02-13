@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +18,31 @@
             font-family: sans-serif;
             text-align: center;
             box-sizing: border-box;
+
+            background: linear-gradient(315deg, rgb(202, 220, 247) 3%, #fbd0ff 38%, #bec2fd 68%, rgb(221, 213, 235) 98%);
+            animation: background-gradient 60s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+        }
+
+        @keyframes background-gradient {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 0%;
+            }
         }
 
         .logo {
             width: min(200px, 80vw);
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
         }
 
         .company-name {
@@ -46,19 +66,19 @@
             padding: 0 10px;
         }
 
-        .contact-column {
+        .contact-card {
             flex: 1 1 100px;
             min-width: 200px;
             text-align: center;
         }
 
-        .contact-column h2 {
+        .contact-card h2 {
             margin-bottom: 10px;
             color: #271198;
             font-size: clamp(1.5rem, 4vw, 2rem);
         }
 
-        .contact-column a {
+        .contact-card a {
             color: #121d30;
             word-break: break-word;
         }
@@ -69,26 +89,80 @@
                 align-items: center;
             }
 
-            .contact-column {
+            .contact-card {
                 width: 100%;
+            }
+        }
+
+        /* Background wave animation */
+        .wave {
+            background: rgb(255 255 255 / 25%);
+            border-radius: 1000% 1000% 0 0;
+            position: fixed;
+            width: 200%;
+            height: 12em;
+            animation: wave 20s -3s linear infinite;
+            transform: translate3d(0, 0, 0);
+            opacity: 0.8;
+            bottom: -8em;
+            left: 0;
+            z-index: -1;
+        }
+
+        .wave:nth-of-type(2) {
+            bottom: -6em;
+            animation: wave 38s linear reverse infinite;
+            opacity: 0.8;
+        }
+
+        .wave:nth-of-type(3) {
+            bottom: -10em;
+            animation: wave 45s -1s reverse infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes wave {
+            2% {
+                transform: translateX(1);
+            }
+
+            25% {
+                transform: translateX(-25%);
+            }
+
+            50% {
+                transform: translateX(-50%);
+            }
+
+            75% {
+                transform: translateX(-25%);
+            }
+
+            100% {
+                transform: translateX(1);
             }
         }
     </style>
 </head>
+
 <body>
     <img src="./images/electric-weave-logo-only.svg" alt="Electric Weave Logo" class="logo">
     <h1 class="company-name">Electric Weave</h1>
     <p class="tagline">Interested in building with us?</p>
 
     <div class="contact-container">
-        <div class="contact-column">
+        <div class="contact-card">
             <h2>Seth Miller</h2>
             <p><a href="mailto:smiller@electricweave.com">smiller@electricweave.com</a></p>
         </div>
-        <div class="contact-column">
+        <div class="contact-card">
             <h2>Tyler Bridgeman</h2>
             <p><a href="mailto:tbridgeman@electricweave.com">tbridgeman@electricweave.com</a></p>
         </div>
     </div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
 </body>
+
 </html>
