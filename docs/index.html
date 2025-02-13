@@ -8,7 +8,7 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -16,43 +16,62 @@
             justify-content: center;
             font-family: sans-serif;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .logo {
-            width: 200px;
+            width: min(200px, 80vw);
             height: auto;
-            margin-bottom: 0px;
+            margin-bottom: 20px;
         }
 
         .company-name {
             font-family: 'Quicksand', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
+            font-size: clamp(2.5rem, 5vw, 3rem);
+            margin-bottom: 30px;
         }
 
         .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            margin-bottom: 30px;
         }
 
         .contact-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 60px;
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 10px;
         }
 
         .contact-column {
+            flex: 1 1 100px;
+            min-width: 200px;
             text-align: center;
         }
 
         .contact-column h2 {
             margin-bottom: 10px;
             color: #271198;
+            font-size: clamp(1.5rem, 4vw, 2rem);
         }
 
         .contact-column a {
-            margin-bottom: 10px;
             color: #121d30;
+            word-break: break-word;
+        }
+
+        @media (max-width: 600px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-column {
+                width: 100%;
+            }
         }
     </style>
 </head>
